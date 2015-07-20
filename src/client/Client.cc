@@ -4800,7 +4800,7 @@ int Client::mount(const std::string &mount_root)
     int res = make_request(req, -1, -1);
     if (res < 0) {
       if (res == -EACCES && root) {
-	dout(1) << __func__ << " EACCES on parent of mount point; quotas may not work" << dendl;
+	ldout(cct, 1) << __func__ << " EACCES on parent of mount point; quotas may not work" << dendl;
 	break;
       }
       return res;
